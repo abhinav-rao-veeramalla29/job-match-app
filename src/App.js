@@ -1,13 +1,28 @@
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>🚀 Job Match App</h1>
-      <h2>Welcome Abhinav Rao</h2>
-      <p>Find your dream job with AI-powered matching.</p>
+    <div>
+      <nav className="navbar">
+        <h2>Job Match</h2>
 
-      <button>Get Started</button>
+        <div>
+          <a href="/">Home</a>
+          <a href="/">Jobs</a>
+          <a href="/">Login</a>
+          <a href="/">Register</a>
+        </div>
+      </nav>
+
+      <section className="hero">
+        <h1>Find Your Dream Job</h1>
+
+        <p>
+          Search thousands of jobs and match your skills with top companies.
+        </p>
+
+        <button>Get Started</button>
+      </section>
     </div>
   );
 }

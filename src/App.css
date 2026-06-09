@@ -1,15 +1,14 @@
-.jobs-page {
+.login-page {
   padding: 40px;
+  text-align: center;
 }
 
-.job-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 20px 0;
+.login-page input {
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
 }
 
-.job-card button {
+.login-page button {
   padding: 10px 20px;
-  cursor: pointer;
 }

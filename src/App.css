@@ -1,38 +1,15 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+.jobs-page {
+  padding: 40px;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: #1f2937;
-  color: white;
+.job-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
 }
 
-.navbar a {
-  margin-left: 20px;
-  color: white;
-  text-decoration: none;
-}
-
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.hero h1 {
-  font-size: 48px;
-}
-
-.hero p {
-  font-size: 20px;
-  color: gray;
-}
-
-button {
-  padding: 12px 24px;
-  font-size: 18px;
+.job-card button {
+  padding: 10px 20px;
   cursor: pointer;
 }

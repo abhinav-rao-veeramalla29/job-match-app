@@ -1,27 +1,40 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import jobs from "../data/jobs";
+
 function Jobs() {
-    return (
-      <div className="jobs-page">
-        <h1>Available Jobs</h1>
-  
-        <div className="job-card">
-          <h2>Software Engineer</h2>
-          <p>Google - Mountain View</p>
-          <button>Apply Now</button>
+  const [search, setSearch] = useState("");
+
+  const filteredJobs = jobs.filter(
+    (job) =>
+      job.title.toLowerCase().includes(search.toLowerCase()) ||
+      job.company.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div className="jobs-page">
+      <h1>Available Jobs</h1>
+
+      <input
+        type="text"
+        placeholder="Search jobs..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      {filteredJobs.map((job) => (
+        <div className="job-card" key={job.id}>
+          <h2>{job.title}</h2>
+          <p>{job.company}</p>
+          <p>{job.location}</p>
+
+          <Link to={`/job/${job.id}`}>
+  <button>Apply Now</button>
+</Link>
         </div>
-  
-        <div className="job-card">
-          <h2>Frontend Developer</h2>
-          <p>Microsoft - Seattle</p>
-          <button>Apply Now</button>
-        </div>
-  
-        <div className="job-card">
-          <h2>Backend Developer</h2>
-          <p>Amazon - New York</p>
-          <button>Apply Now</button>
-        </div>
-      </div>
-    );
-  }
-  
-  export default Jobs;
+      ))}
+    </div>
+  );
+}
+
+export default Jobs;

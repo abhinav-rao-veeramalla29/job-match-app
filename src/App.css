@@ -1,14 +1,53 @@
-.login-page {
+.jobs-page {
   padding: 40px;
-  text-align: center;
 }
 
-.login-page input {
-  width: 300px;
+.jobs-page input {
+  width: 350px;
   padding: 10px;
-  margin: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 
-.login-page button {
+.job-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.job-details {
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.job-details h1 {
+  margin-bottom: 20px;
+}
+
+.job-details h3 {
+  margin-top: 20px;
+}
+
+.job-details button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  cursor: pointer;
+}
+.application-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.application-form input,
+.application-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.application-form button {
   padding: 10px 20px;
+  cursor: pointer;
 }

@@ -1,20 +1,35 @@
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function JobDetails() {
+  const { id } = useParams();
+
+  const [job, setJob] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:5001/jobs")
+      .then((res) => res.json())
+      .then((data) => {
+        const selectedJob = data.find((item) => item._id === id);
+        setJob(selectedJob);
+      });
+  }, [id]);
+
+  if (!job) {
+    return <h2>Loading...</h2>;
+  }
+
   return (
-    <div className="job-details">
-      <h1>Software Engineer</h1>
+    <div style={{ padding: "20px" }}>
+      <h1>{job.title}</h1>
 
-      <p>Company: Google</p>
+      <h2>{job.company}</h2>
 
-      <p>Location: Mountain View</p>
+      <h3>{job.location}</h3>
 
-      <p>
-        We are looking for a passionate Software Engineer to build modern web
-        applications.
-      </p>
+      <p>{job.description}</p>
 
-      <Link to="/apply">
+      <Link to={`/apply?jobId=${job._id}`}>
         <button>Apply Now</button>
       </Link>
     </div>

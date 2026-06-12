@@ -1,67 +1,70 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 function ApplicationForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [coverLetter, setCoverLetter] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [searchParams] = useSearchParams();
+  const jobId = searchParams.get("jobId");
+
+  const submitApplication = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    if (!jobId) {
+      alert("No job selected.");
+      return;
+    }
+
+    const response = await fetch("http://localhost:5001/apply", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        jobId,
+      }),
+    });
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    setName("");
+    setEmail("");
   };
 
   return (
-    <div className="application-form">
-      <h1>Apply for this Job</h1>
+    <div style={{ padding: "20px" }}>
+      <h1>Job Application</h1>
 
-      {submitted ? (
-        <h2>✅ Application Submitted Successfully!</h2>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Full Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+      <form onSubmit={submitApplication}>
+        <input
+          type="text"
+          placeholder="Enter Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
-          <br /><br />
+        <br />
+        <br />
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        <input
+          type="email"
+          placeholder="Enter Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-          <br /><br />
+        <br />
+        <br />
 
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-          />
-
-          <br /><br />
-
-          <textarea
-            placeholder="Cover Letter"
-            rows="5"
-            value={coverLetter}
-            onChange={(e) => setCoverLetter(e.target.value)}
-          ></textarea>
-
-          <br /><br />
-
-          <button type="submit">Submit Application</button>
-        </form>
-      )}
+        <button type="submit">
+          Submit Application
+        </button>
+      </form>
     </div>
   );
 }

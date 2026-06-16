@@ -4,11 +4,10 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-
 import Home from "./pages/Home";
-import Jobs from "./pages/Jobs";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Jobs from "./pages/jobs";
+import Login from "./pages/login";
+import Register from "./pages/register";
 import JobDetails from "./pages/JobDetails";
 import ApplicationForm from "./pages/ApplicationForm";
 import Admin from "./pages/Admin";
@@ -23,15 +22,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/jobs" element={<Jobs />} />
-
         <Route path="/login" element={<Login />} />
-
         <Route path="/register" element={<Register />} />
-
         <Route path="/job/:id" element={<JobDetails />} />
-
         <Route path="/apply" element={<ApplicationForm />} />
 
         <Route

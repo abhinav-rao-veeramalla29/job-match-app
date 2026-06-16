@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
-import Jobs from "./pages/jobs";
+import Jobs from "./pages/Jobs";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import JobDetails from "./pages/JobDetails";

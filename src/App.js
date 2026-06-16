@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 
 
 import Home from "./pages/Home";
-import Jobs from './pages/jobs';
+import Jobs from "./pages/Jobs";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import JobDetails from "./pages/JobDetails";
